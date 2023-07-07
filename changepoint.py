@@ -1,6 +1,6 @@
 """
 Sergio Pérez Pantoja    Matcom C-411
-Changepoint detection
+Change Point detection
 """
 
 import numpy as np
@@ -54,7 +54,7 @@ def optimal_partition(signal, seg_cost, K):
 
     for u in range(n):
         for v in range(u+1, n):
-            M[0][u][v] = segment_cost(signal[u:v+1])
+            M[0][u][v] = seg_cost(signal[u:v+1])
     
     if K > 1:
         for k in range(1, K):
@@ -169,4 +169,4 @@ plt.show()
 # With a low penalty (e.g., 0.1 * log(n)), the algorithm detects many change points, 
 # including some that might be just noise. As the penalty increases, the number 
 # of detected change points should decrease, and with a high enough penalty 
-# (e.g., 2 * log(n)), the algorithm might miss some actual change points.
+# the algorithm might miss some actual change points.
